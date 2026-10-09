@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老博会阅读版 · 民政部"十五五"养老蓝图 + 失能老人消费券</title>
+<meta name="description" content="民政部国新办发布会实录 + 养老服务消费券政策问答的阅读版整理">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --ink-2: #4a4a4a;
+    --ink-3: #8a8a8a;
+    --line: #e8e4dd;
+    --accent: #6E8899;
+    --accent-soft: rgba(110,136,153,.1);
+    --terra: #C4956E;
+    --terra-soft: rgba(196,149,110,.12);
+    --good: #2f7d5d;
+    --warn: #b0523a;
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 16px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  /* ---- hero ---- */
+  .hero { padding: 36px 0 28px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+  .hero .kicker {
+    display: inline-block; font-size: 12px; letter-spacing: .18em; font-weight: 700;
+    color: var(--terra); text-transform: uppercase; margin-bottom: 12px;
+  }
+  .hero h1 { font-size: 28px; line-height: 1.4; font-weight: 700; margin-bottom: 14px; }
+  .hero .sub { color: var(--ink-2); font-size: 15px; }
+  .hero .meta { margin-top: 14px; font-size: 13px; color: var(--ink-3); }
+
+  /* ---- 目录 ---- */
+  .toc {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px 22px; margin: 24px 0 36px;
+  }
+  .toc-title { font-size: 13px; font-weight: 700; color: var(--ink-3); letter-spacing: .1em; margin-bottom: 10px; }
+  .toc ol { list-style: none; counter-reset: t; }
+  .toc li { counter-increment: t; padding: 5px 0; }
+  .toc li::before { content: counter(t) ". "; color: var(--accent); font-weight: 700; margin-right: 4px; }
+  .toc a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid transparent; }
+  .toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ---- 章节 ---- */
+  section { margin-bottom: 44px; }
+  .sec-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 700; letter-spacing: .08em;
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .tag-blue { background: var(--accent-soft); color: var(--accent); }
+  .tag-terra { background: var(--terra-soft); color: #9a6f4a; }
+  h2 { font-size: 21px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
+  h3 { font-size: 17px; font-weight: 700; margin: 26px 0 10px; }
+  p { margin-bottom: 14px; color: var(--ink-2); }
+  p strong { color: var(--ink); }
+  ul { margin: 0 0 14px 0; padding-left: 0; list-style: none; }
+  ul li { padding-left: 22px; position: relative; margin-bottom: 8px; color: var(--ink-2); }
+  ul li::before {
+    content: ""; position: absolute; left: 6px; top: 11px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--terra);
+  }
+
+  /* ---- 关键数字 ---- */
+  .numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 20px 0; }
+  .num {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px; text-align: center;
+  }
+  .num .v { font-size: 24px; font-weight: 800; color: var(--accent); line-height: 1.2; }
+  .num .l { font-size: 12px; color: var(--ink-3); margin-top: 6px; }
+
+  /* ---- 表格 ---- */
+  .tbl-wrap { overflow-x: auto; margin: 16px 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; }
+  th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+  th { background: #f4f1ec; font-weight: 700; color: var(--ink); font-size: 13px; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  td { color: var(--ink-2); }
+  td strong { color: var(--ink); }
+
+  /* ---- 引用块 ---- */
+  .quote {
+    border-left: 3px solid var(--accent); background: var(--accent-soft);
+    padding: 14px 18px; margin: 16px 0; border-radius: 0 10px 10px 0;
+    font-size: 15px; color: var(--ink);
+  }
+  .quote .src { display: block; font-size: 12px; color: var(--ink-3); margin-top: 8px; }
+
+  /* ---- 警示卡 ---- */
+  .alert {
+    background: #fdf3ef; border: 1px solid #f0d9cf; border-radius: var(--radius);
+    padding: 16px 18px; margin: 18px 0;
+  }
+  .alert .t { font-weight: 700; color: var(--warn); font-size: 14px; margin-bottom: 6px; }
+  .alert p { margin: 0; font-size: 14px; }
+
+  /* ---- 提示卡 ---- */
+  .note {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px 18px; margin: 18px 0; font-size: 14px;
+  }
+  .note .t { font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+
+  /* ---- 洞察列表 ---- */
+  .insight { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 22px; margin: 16px 0; }
+  .insight ol { padding-left: 20px; }
+  .insight li { margin: 12px 0; }
+  .insight li strong { color: var(--ink); }
+  .insight li { list-style: decimal; }
+  .insight li::before { display: none; }
+  .insight ol { list-style: decimal; }
+  .insight li { padding-left: 4px; }
+
+  /* ---- footer ---- */
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-3); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  @media (max-width: 600px) {
+    body { font-size: 15px; }
+    .hero h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+    .num .v { font-size: 20px; }
+    .wrap { padding: 20px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="kicker">政策深读 · 阅读版</div>
+    <h1>民政部"十五五"养老蓝图<br>与失能老人"养老红包"全景</h1>
+    <p class="sub">国新办发布会实录 + 人民日报头版政策问答，整理成一页可读完的深度资料。</p>
+    <div class="meta">资料来源：国新办 2026-09-23 发布会 · 人民日报 2026-10-08 头版 · 整理日期 2026-10-09</div>
+  </div>
+
+  <!-- ============ 目录 ============ -->
+  <nav class="toc">
+    <div class="toc-title">本文目录</div>
+    <ol>
+      <li><a href="#s1">头条1：国新办发布会——"十五五"养老施工图</a></li>
+      <li><a href="#s2">头条2：养老服务消费券——政策落地半年成绩单</a></li>
+      <li><a href="#s3">普通家庭怎么用这份资料</a></li>
+      <li><a href="#s4">A股方向性洞察</a></li>
+      <li><a href="#s5">数据核验说明</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ S1 国新办 ============ -->
+  <section id="s1">
+    <span class="sec-tag tag-blue">头条 1 · 政策蓝图</span>
+    <h2>国新办发布会：民政部给"十五五"画了施工图</h2>
+    <p>2026 年 9 月 23 日下午 3 时，国务院新闻办举行"开局起步'十五五'"系列发布会，民政部部长李常官介绍"十五五"时期民政事业部署。核心不是口号，是三个硬指标 + 两张法条 + 两个强标。</p>
+
+    <div class="numbers">
+      <div class="num"><div class="v">73%</div><div class="l">养老机构护理型床位占比目标</div></div>
+      <div class="num"><div class="v">70%</div><div class="l">村/社区养老设施覆盖率</div></div>
+      <div class="num"><div class="v">5000 个</div><div class="l">"十五五"新增机构总数</div></div>
+      <div class="num"><div class="v">39.5 万</div><div class="l">现有养老服务机构和设施</div></div>
+    </div>
+
+    <h3>李常官部长原话要点</h3>
+    <ul>
+      <li>"健全城乡三级养老服务体系，加大养老机构护理型床位建设，<strong>推动养老机构护理型床位占比达到 73%</strong>"</li>
+      <li>加快推动<strong>制定养老服务法</strong>、<strong>修订老年人权益保障法</strong></li>
+      <li>"十四五"底数：<strong>5300 多万</strong>老年人享受补贴</li>
+      <li>银发经济：康复辅助器具产业规模<strong>突破 7300 亿元</strong>，5000 多万老年志愿者</li>
+    </ul>
+
+    <h3>孙硕鹏副部长的"五千工程"（最实干货）</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>类别</th><th>数量</th><th>市场解读</th></tr></thead>
+        <tbody>
+          <tr><td><strong>公办养老机构达二级以上标准</strong></td><td>2000 个</td><td>存量提质，合规化改造需求</td></tr>
+          <tr><td><strong>"双高"普惠性养老机构</strong></td><td>1000 个</td><td>价格可负担 + 质量有保障</td></tr>
+          <tr><td><strong>失智老年人照护机构</strong></td><td>1000 个</td><td>认知症照护是纯增量硬缺口</td></tr>
+          <tr><td><strong>连锁化社区嵌入式机构</strong></td><td>1000 个</td><td>利好全国化连锁运营商</td></tr>
+          <tr><td><strong>合计</strong></td><td><strong>5000 个</strong></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>两个"铁规"强标已落地</h3>
+    <p>《养老机构基本规范》《养老机构重大事故隐患判定准则》——均为<strong>强制性国家标准</strong>。发布会原话："养老机构有铁的规矩了，就是要向全社会传递养老机构要全面从严管控、确保安全的信号。"</p>
+
+    <h3>其他关键部署</h3>
+    <ul>
+      <li>建立<strong>养老服务师职业资格制度</strong>（职业资格考试已推出），护理员全员接受培训</li>
+      <li>农村底数：1.3 万个农村敬老院、23.3 万个农村养老服务设施</li>
+      <li><strong>每个有条件的地市至少建 1 所</strong>集中托养照护服务机构</li>
+      <li>探索"老残一体"家庭（老年父母 + 残疾子女共同入住养老机构）</li>
+    </ul>
+  </section>
+
+  <!-- ============ S2 消费券 ============ -->
+  <section id="s2">
+    <span class="sec-tag tag-terra">头条 2 · 政策落地</span>
+    <h2>养老服务消费券：半年惠及 246 万人</h2>
+    <p>国家给失能老年人发的"消费红包"——财政出资补贴，买居家、社区、机构养老服务时按比例抵钱。截至 10 月 7 日已惠及<strong>超 246 万人</strong>（3 月时才 105 万，7 个月翻了一倍多）。</p>
+
+    <div class="numbers">
+      <div class="num"><div class="v">246 万+</div><div class="l">已惠及失能老人（截至 10/7）</div></div>
+      <div class="num"><div class="v">800 元</div><div class="l">每人每月最高抵扣</div></div>
+      <div class="num"><div class="v">120.9 亿</div><div class="l">中央财政专项补助已下达</div></div>
+      <div class="num"><div class="v">9 : 1</div><div class="l">中央与地方资金分担比例</div></div>
+    </div>
+
+    <h3>谁能领</h3>
+    <ul>
+      <li>经统一评估为<strong>中度、重度、完全失能</strong>的老年人</li>
+      <li><strong>打破户籍限制</strong>——在当前实际居住地即可申领</li>
+      <li>2024 年 7 月后已做过评估并认定中度以上失能的，<strong>无需重新评估</strong></li>
+    </ul>
+
+    <h3>怎么领</h3>
+    <ul>
+      <li>入口：<strong>"民政通"App 或微信小程序</strong>→ 养老服务消费补贴板块</li>
+      <li>可代办：子女亲属、村/社区工作人员、养老机构人员均可（1 人最多代 12 人）</li>
+      <li>评估人员 5 个工作日内主动联系预约上门评估</li>
+    </ul>
+
+    <h3>抵扣规则</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>服务类型</th><th>抵扣比例</th><th>每月上限</th></tr></thead>
+        <tbody>
+          <tr><td><strong>机构养老服务</strong>（含短期喘息）</td><td>40%</td><td>800 元</td></tr>
+          <tr><td><strong>社区居家养老服务</strong></td><td>50%</td><td>800 元</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert">
+      <div class="t">⚠ 三条最容易踩的坑</div>
+      <p><strong>① 当月核发当月用，次月自动失效</strong>——用不掉不累积。<br>
+      <strong>② 政策实施至 2026 年 12 月底</strong>——这是最需要注意的时效点。<br>
+      <strong>③ 机构必须入库</strong>——能否用券关键看服务机构是否进了官方数据库，用券前先在"民政通"查询确认。</p>
+    </div>
+
+    <h3>与其它政策的关系</h3>
+    <ul>
+      <li><strong>可与长护险叠加</strong>：已享受长护险的，扣除待遇后个人自费部分仍可用券</li>
+      <li><strong>不重复享受</strong>：特困供养救助、经济困难失能集中照护补助、居家社区基本养老服务提升行动项目，三者不叠加</li>
+      <li>使用范围：居家上门（助餐/助浴/助洁/助行/助医/康复护理）、机构养老（长期 + 喘息服务）、日托服务</li>
+    </ul>
+  </section>
+
+  <!-- ============ S3 家庭用法 ============ -->
+  <section id="s3">
+    <span class="sec-tag tag-blue">实用指南</span>
+    <h2>普通家庭怎么用这份资料</h2>
+    <div class="note">
+      <div class="t">如果你家有失能老人</div>
+      <p>现在就打开"民政通"查两件事：① 老人是否已被评定中度以上失能；② 你所在城市有哪些机构/家政公司已入库可以用券。每月最多 800 元，一年最多 9600 元——政策 12 月底截止，该办的别拖。</p>
+    </div>
+    <div class="note">
+      <div class="t">如果你在考察养老院</div>
+      <p>"护理型床位 73% 目标 + 两个强制性国标"意味着：选机构时直接问对方"是否过《养老机构基本规范》强标、护理型床位占比多少"——这两项即将成为行业分水岭，不合规的小机构会被出清。</p>
+    </div>
+    <div class="note">
+      <div class="t">如果你家老人在农村</div>
+      <p>"每个有条件的地市至少建 1 所集中托养照护机构"是明确信号——可以向属地民政部门问询本地集中托养机构的建设计划和申请条件。</p>
+    </div>
+  </section>
+
+  <!-- ============ S4 投资洞察 ============ -->
+  <section id="s4">
+    <span class="sec-tag tag-blue">A股方向</span>
+    <h2>方向性洞察（非荐股）</h2>
+    <div class="insight">
+      <ol>
+        <li><strong>73% 护理型床位是行业最大变量。</strong>普通床位→护理型床位强制配套护理床、防褥疮床垫、移位机、康复设备——利好康复医疗器械/护理床/适老化改造板块。</li>
+        <li><strong>失智照护机构 1000 个 = 纯增量。</strong>认知症照护市场几乎空白，照护方案商、认知症数字疗法标的受益。</li>
+        <li><strong>社区嵌入式连锁 1000 个 → 连锁化率提升逻辑。</strong>利好全国化布局的社区居家养老服务运营商，单店模型跑通的公司弹性大。</li>
+        <li><strong>两个强制性国标 = 供给侧出清。</strong>合规成本上升利好头部机构、利空小型不规范机构——看养老服务标的要盯"是否过强标"。</li>
+        <li><strong>养老服务师职业资格 → 养老职业教育培训</strong>隐形受益方向。</li>
+        <li><strong>12 月底政策到期是短期最大看点。</strong>246 万人受益、120 亿砸下去的政策若延续，养老服务链条有政策接续催化；若暂停则四季度相关标的要防预期落空。建议盯年底民政部后续表态。</li>
+        <li><strong>农村养老网络</strong>（县乡村三级 + 每地市 1 所集中托养机构）——政策资金明确倾斜，利好布局县域市场的服务商。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ S5 核验 ============ -->
+  <section id="s5">
+    <span class="sec-tag tag-blue">核验</span>
+    <h2>数据核验说明</h2>
+    <p>本页全部数字均来自一手权威来源，并做了交叉核对：</p>
+    <ul>
+      <li><strong>发布会细节</strong>：国新办官网实录（scio.gov.cn/live/2026/39569/）+ 全文转载交叉核对；发布会时间为 2026 年 9 月 23 日 15:00</li>
+      <li><strong>消费券数据</strong>：人民日报 2026-10-08 头版（记者吴储岐）；3 月人民日报核销数据为 332.8 万张 / 23.5 亿元 / 105 万人</li>
+      <li><strong>算术自洽性</strong>：23.5 亿 ÷ 332.8 万张 ≈ 706 元/张，与"每月最高 800 元"口径吻合</li>
+      <li>转述均标注发言人和原话出处，未做演绎</li>
+    </ul>
+    <div class="quote">
+      "健全城乡三级养老服务体系，加大养老机构护理型床位建设，推动养老机构护理型床位占比达到 73%。"
+      <span class="src">—— 民政部部长李常官，国新办 2026-09-23 发布会</span>
+    </div>
+  </section>
+
+  <footer>
+    <strong>老博会阅读版</strong> · 整理于 2026-10-09<br>
+    来源：国新办"开局起步'十五五'"新闻发布会（2026-09-23）· 《人民日报》2026-10-08 第 01 版 · 北京市人民政府门户网站<br>
+    本页为政策信息整理，不构成投资建议；办理补贴前请以属地民政部门口径为准。
+  </footer>
+
+</div>
+</body>
+</html>
